@@ -7,12 +7,11 @@ cat("\014")
 #devtools::install_github("hrbrmstr/firasans")
 
 library(ggplot2)
-library(plyr)
+library(dplyr)
 library(tidyverse)
 library(designmatch)
 library(hrbrthemes)
 library(firasans)
-library(ggridges)
 library(augsynth)
 library(magrittr)
 
@@ -38,6 +37,12 @@ d2020_comuna = read.csv(paste0(dir_data,"data_original/votacion2020.csv"), heade
 ####### Data etapas COVID (https://docs.google.com/spreadsheets/d/1WieweYNSPdpmjUIyYcbKp1oaqwlnD61_/edit?usp=drive_web&ouid=117681751153105889471&dls=true)
 
 etapas = read.csv(paste0(dir_data,"data_original/CUT_CUARENTENAS_COVID_24_25_Oct.csv"))
+
+############################
+
+####### Data CASEN 2017
+
+casen = read.csv(paste0(dir_data,"data_original/casen2017_clean.csv"))
 
 ############################
 
@@ -252,7 +257,7 @@ plot(syn)
 
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
                       conf.interval=.95, .drop=TRUE) {
-  
+  library(plyr)
   # New version of length which can handle NA's: if na.rm==T, don't count them
   length2 <- function (x, na.rm=FALSE) {
     if (na.rm) sum(!is.na(x))
