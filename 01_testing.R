@@ -18,7 +18,7 @@ library(magrittr)
 #Turn off scientific notation (turn back on with 0)
 set.seed(100)
 
-### Load data
+### Load data (Linea 209 carga el workspace que esta en el repositorio)
 
 dir_data = "C:/Users/mc72574/Dropbox/covid/participacion/"
 
