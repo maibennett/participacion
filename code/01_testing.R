@@ -19,7 +19,7 @@ library(magrittr)
 #Turn off scientific notation (turn back on with 0)
 set.seed(100)
 
-### Load data (Linea 209 carga el workspace que esta en el repositorio)
+### Load data (Linea 213 carga los datos que estan limpios que esta en el repositorio)
 
 dir_data = "C:/Users/mc72574/Dropbox/covid/participacion/"
 
@@ -204,13 +204,13 @@ etapas$group_etapa_plebiscito[etapas$X24.Oct>2] = 0
 d = left_join(d, etapas[,c("COMUNA","X24.Oct","group_etapa_plebiscito")], by = "COMUNA")
 
 
-save(d,file=paste0(dir_data,"test_workspace.Rdata"))
-
+save(d,file=paste0(dir_data,"analysis/participacion/data/test_workspace.Rdata"))
+write.csv(d, file = paste0(dir_data,"analysis/participacion/data/d2012-2020_clean.csv"))
 
 ############################################################################
 ##### Analysis
 
-load(paste0(dir_data,"analysis/participacion/test_workspace.Rdata"))
+d = read.csv("https://raw.githubusercontent.com/maibennett/participacion/main/data/d2012-2020_clean.csv")
 
 # Efecto COVID ASCM
 
