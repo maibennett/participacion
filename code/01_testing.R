@@ -224,9 +224,12 @@ d = read.csv("https://raw.githubusercontent.com/maibennett/participacion/main/da
 
 d$treated = as.numeric(d$year==2020 & d$X24.Oct<=1)
 
+# Drop comunas that don't have CASEN data:
+d = d[!is.na(d$yautcorh),]
+
 syn <- augsynth(participacion ~ treated | participacion_1 + participacion_2
-                + participacion_3 + n, COMUNA, year, d[d$X24.Oct==1 | d$X24.Oct==3 | 
-                                                         d$X24.Oct==2,],
+                + participacion_3 + n + yautcorh + hacinamiento_2, COMUNA, year, 
+                d[d$X24.Oct==1 | d$X24.Oct==3 | d$X24.Oct==2,],
                 progfunc = "Ridge",scm=T,fixedeff = T)
 
 
@@ -236,14 +239,15 @@ plot(syn)
 
 # Efecto edad
 d$adulto_mayor = d$n_3/d$n
+d$treated = as.numeric(d$adulto_mayor>=0.2 & d$year>=2020)
 
 comunas_selected = unique(d$COMUNA[(d$adulto_mayor>0.21 | d$adulto_mayor<=0.17) & d$year==2020])
 
 d_subset = d[d$COMUNA %in% comunas_selected,]
-d_subset$treated = as.numeric(d_subset$adulto_mayor>=0.2 & d_subset$year>=2020)
 
 syn <- augsynth(participacion ~ treated | participacion_1 + participacion_2
-                + participacion_3 + n + factor(X24.Oct), COMUNA, year, d_subset,
+                + participacion_3 + n + factor(X24.Oct) + decil1 + decil2 + decil9 + decil10 + hacinamiento_2, 
+                COMUNA, year, d,
                 progfunc = "Ridge",scm=T,fixedeff = T)
 
 summary(syn)
