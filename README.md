@@ -1,4 +1,4 @@
-# participacion
+# Participacion
 
 ## Code
  - 01_testing.R: Codigo que junta los datos (servel 2012-2020, etapas cuarentenas 24/10, y CASEN 2017), y corre primeros analisis de ASCM (además de graficos DD).
