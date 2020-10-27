@@ -7,6 +7,7 @@ cat("\014")
 #devtools::install_github("hrbrmstr/firasans")
 
 library(ggplot2)
+library(plyr)
 library(tidyverse)
 library(designmatch)
 library(hrbrthemes)
@@ -209,7 +210,7 @@ save(d,file=paste0(dir_data,"test_workspace.Rdata"))
 ############################################################################
 ##### Analysis
 
-load(paste0(dir_data,"test_workspace.Rdata"))
+load(paste0(dir_data,"analysis/participacion/test_workspace.Rdata"))
 
 # Efecto COVID ASCM
 
