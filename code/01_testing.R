@@ -24,20 +24,20 @@ set.seed(100)
 dir_data = "C:/Users/mc72574/Dropbox/covid/participacion/"
 
 
-######## Data participacion
+######## Data participacion (bajada del servel)
 
-d2012 = read.csv(paste0(dir_data,"VW_VOTARON_2012.csv"), sep = ";", header = TRUE)
-d2013 = read.csv(paste0(dir_data,"PARTICIPACION_2013_1V.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
-d2016 = read.csv(paste0(dir_data,"PARTICIPACION_2016.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
-d2017 = read.csv(paste0(dir_data,"VW_VOTARON_2017_1V.csv"), sep = ";", header = TRUE)
-d2020_padron = read.csv(paste0(dir_data,"old/PADRON2020.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
-d2020_comuna = read.csv(paste0(dir_data,"votacion2020.csv"), header = TRUE)
+d2012 = read.csv(paste0(dir_data,"data_original/VW_VOTARON_2012.csv"), sep = ";", header = TRUE)
+d2013 = read.csv(paste0(dir_data,"data_original/PARTICIPACION_2013_1V.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
+d2016 = read.csv(paste0(dir_data,"data_original/PARTICIPACION_2016.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
+d2017 = read.csv(paste0(dir_data,"data_original/VW_VOTARON_2017_1V.csv"), sep = ";", header = TRUE)
+d2020_padron = read.csv(paste0(dir_data,"data_original/PADRON2020.csv"), sep = ";", header = TRUE, encoding = "UTF-8")
+d2020_comuna = read.csv(paste0(dir_data,"data_original/votacion2020.csv"), header = TRUE)
 
 ###########################
 
-####### Data etapas COVID
+####### Data etapas COVID (https://docs.google.com/spreadsheets/d/1WieweYNSPdpmjUIyYcbKp1oaqwlnD61_/edit?usp=drive_web&ouid=117681751153105889471&dls=true)
 
-etapas = read.csv(paste0(dir_data,"CUT_CUARENTENAS_COVID_24_25_Oct.csv"))
+etapas = read.csv(paste0(dir_data,"data_original/CUT_CUARENTENAS_COVID_24_25_Oct.csv"))
 
 ############################
 
