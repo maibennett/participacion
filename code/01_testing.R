@@ -204,8 +204,8 @@ etapas$group_etapa_plebiscito[etapas$X24.Oct>2] = 0
 d = left_join(d, etapas[,c("COMUNA","X24.Oct","group_etapa_plebiscito")], by = "COMUNA")
 
 
-save(d,file=paste0(dir_data,"analysis/participacion/data/test_workspace.Rdata"))
-write.csv(d, file = paste0(dir_data,"analysis/participacion/data/d2012-2020_clean.csv"))
+save(d,file=paste0(dir_data,"repositorio/participacion/data/test_workspace.Rdata"))
+write.csv(d, file = paste0(dir_data,"repositorio/participacion/data/d2012-2020_clean.csv"))
 
 ############################################################################
 ##### Analysis
